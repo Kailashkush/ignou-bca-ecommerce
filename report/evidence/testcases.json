@@ -1,0 +1,612 @@
+[
+ {
+  "id": "TC-I-36",
+  "name": "returns the authoritative total without placing an order",
+  "suite": "POST /api/orders/quote"
+ },
+ {
+  "id": "TC-I-37",
+  "name": "places a card order, decrements stock and returns an invoice",
+  "suite": "POST /api/orders"
+ },
+ {
+  "id": "TC-I-38",
+  "name": "recomputes the price and ignores client-supplied amounts",
+  "suite": "POST /api/orders"
+ },
+ {
+  "id": "TC-I-39",
+  "name": "stores no card number or CVV anywhere on the order",
+  "suite": "POST /api/orders"
+ },
+ {
+  "id": "TC-I-40",
+  "name": "releases reserved stock when the payment is declined",
+  "suite": "POST /api/orders"
+ },
+ {
+  "id": "TC-I-41",
+  "name": "refuses an order for more units than are in stock",
+  "suite": "POST /api/orders"
+ },
+ {
+  "id": "TC-I-42",
+  "name": "places a cash-on-delivery order as PENDING and unpaid",
+  "suite": "POST /api/orders"
+ },
+ {
+  "id": "TC-I-43",
+  "name": "rejects an invalid pincode in the shipping address",
+  "suite": "POST /api/orders"
+ },
+ {
+  "id": "TC-I-44",
+  "name": "refuses an anonymous checkout",
+  "suite": "POST /api/orders"
+ },
+ {
+  "id": "TC-I-45",
+  "name": "does not oversell when two customers race for the last unit",
+  "suite": "POST /api/orders"
+ },
+ {
+  "id": "TC-I-46",
+  "name": "a customer can read their own order",
+  "suite": "Reading orders"
+ },
+ {
+  "id": "TC-I-47",
+  "name": "a customer cannot read another customer\u2019s order",
+  "suite": "Reading orders"
+ },
+ {
+  "id": "TC-I-48",
+  "name": "an administrator can read any order",
+  "suite": "Reading orders"
+ },
+ {
+  "id": "TC-I-49",
+  "name": "the order list is scoped to the calling customer",
+  "suite": "Reading orders"
+ },
+ {
+  "id": "TC-I-50",
+  "name": "a customer cannot list every order in the store",
+  "suite": "Reading orders"
+ },
+ {
+  "id": "TC-I-51",
+  "name": "an administrator advances the order through legal states",
+  "suite": "Order status management"
+ },
+ {
+  "id": "TC-I-52",
+  "name": "an illegal state transition is refused with 409",
+  "suite": "Order status management"
+ },
+ {
+  "id": "TC-I-53",
+  "name": "cancelling an order returns the stock to the catalogue",
+  "suite": "Order status management"
+ },
+ {
+  "id": "TC-I-54",
+  "name": "a shipped order can no longer be cancelled by the customer",
+  "suite": "Order status management"
+ },
+ {
+  "id": "TC-I-55",
+  "name": "a cash order is marked paid when it is delivered",
+  "suite": "Order status management"
+ },
+ {
+  "id": "TC-I-01",
+  "name": "creates an account and returns a token",
+  "suite": "POST /api/auth/register"
+ },
+ {
+  "id": "TC-I-02",
+  "name": "never returns the password hash in the response body",
+  "suite": "POST /api/auth/register"
+ },
+ {
+  "id": "TC-I-03",
+  "name": "refuses a duplicate email address with 409",
+  "suite": "POST /api/auth/register"
+ },
+ {
+  "id": "TC-I-04",
+  "name": "rejects a weak password and lists the reason",
+  "suite": "POST /api/auth/register"
+ },
+ {
+  "id": "TC-I-05",
+  "name": "rejects a malformed email address",
+  "suite": "POST /api/auth/register"
+ },
+ {
+  "id": "TC-I-06",
+  "name": "ignores a role supplied in the body (privilege escalation)",
+  "suite": "POST /api/auth/register"
+ },
+ {
+  "id": "TC-I-07",
+  "name": "signs in with correct credentials",
+  "suite": "POST /api/auth/login"
+ },
+ {
+  "id": "TC-I-08",
+  "name": "rejects a wrong password with 401",
+  "suite": "POST /api/auth/login"
+ },
+ {
+  "id": "TC-I-09",
+  "name": "gives an identical message for unknown email and wrong password",
+  "suite": "POST /api/auth/login"
+ },
+ {
+  "id": "TC-I-10",
+  "name": "resists a NoSQL operator injection in the credentials",
+  "suite": "POST /api/auth/login"
+ },
+ {
+  "id": "TC-I-11",
+  "name": "refuses a deactivated account with 403",
+  "suite": "POST /api/auth/login"
+ },
+ {
+  "id": "TC-I-12",
+  "name": "returns the signed-in user for a valid token",
+  "suite": "GET /api/auth/me"
+ },
+ {
+  "id": "TC-I-13",
+  "name": "refuses a request with no token",
+  "suite": "GET /api/auth/me"
+ },
+ {
+  "id": "TC-I-14",
+  "name": "refuses a tampered token",
+  "suite": "GET /api/auth/me"
+ },
+ {
+  "id": "TC-I-15",
+  "name": "changes the password and issues a fresh token",
+  "suite": "PATCH /api/auth/me/password"
+ },
+ {
+  "id": "TC-I-16",
+  "name": "refuses the change when the current password is wrong",
+  "suite": "PATCH /api/auth/me/password"
+ },
+ {
+  "id": "TC-I-56",
+  "name": "aggregates revenue, order count and the 14-day series",
+  "suite": "GET /api/admin/dashboard"
+ },
+ {
+  "id": "TC-I-57",
+  "name": "reports zeroes rather than failing on an empty store",
+  "suite": "GET /api/admin/dashboard"
+ },
+ {
+  "id": "TC-I-58",
+  "name": "flags products at or below the low-stock threshold",
+  "suite": "GET /api/admin/dashboard"
+ },
+ {
+  "id": "TC-I-59",
+  "name": "refuses a customer with 403",
+  "suite": "GET /api/admin/dashboard"
+ },
+ {
+  "id": "TC-I-60",
+  "name": "lists users and never exposes a password hash",
+  "suite": "User administration"
+ },
+ {
+  "id": "TC-I-61",
+  "name": "searches users by name or email",
+  "suite": "User administration"
+ },
+ {
+  "id": "TC-I-62",
+  "name": "deactivating an account takes effect on the next request",
+  "suite": "User administration"
+ },
+ {
+  "id": "TC-I-63",
+  "name": "an administrator cannot deactivate their own account",
+  "suite": "User administration"
+ },
+ {
+  "id": "TC-I-64",
+  "name": "the 14-day window ends on the current local day",
+  "suite": "Dashboard sales window"
+ },
+ {
+  "id": "TC-I-65",
+  "name": "an order placed today lands in the final bucket",
+  "suite": "Dashboard sales window"
+ },
+ {
+  "id": "TC-I-17",
+  "name": "lists active products with pagination metadata",
+  "suite": "GET /api/products"
+ },
+ {
+  "id": "TC-I-18",
+  "name": "finds products by keyword using the text index",
+  "suite": "GET /api/products"
+ },
+ {
+  "id": "TC-I-19",
+  "name": "filters by price band",
+  "suite": "GET /api/products"
+ },
+ {
+  "id": "TC-I-20",
+  "name": "filters out items with no stock when asked",
+  "suite": "GET /api/products"
+ },
+ {
+  "id": "TC-I-21",
+  "name": "sorts by price ascending",
+  "suite": "GET /api/products"
+ },
+ {
+  "id": "TC-I-22",
+  "name": "paginates correctly",
+  "suite": "GET /api/products"
+ },
+ {
+  "id": "TC-I-23",
+  "name": "excludes withdrawn (soft-deleted) products",
+  "suite": "GET /api/products"
+ },
+ {
+  "id": "TC-I-24",
+  "name": "rejects a non-numeric price filter with 422",
+  "suite": "GET /api/products"
+ },
+ {
+  "id": "TC-I-25",
+  "name": "returns full detail for an existing product",
+  "suite": "GET /api/products/:id"
+ },
+ {
+  "id": "TC-I-26",
+  "name": "returns 422 for a malformed identifier",
+  "suite": "GET /api/products/:id"
+ },
+ {
+  "id": "TC-I-27",
+  "name": "returns 404 for an identifier that does not exist",
+  "suite": "GET /api/products/:id"
+ },
+ {
+  "id": "TC-I-28",
+  "name": "an administrator can create a product",
+  "suite": "Administrator product maintenance"
+ },
+ {
+  "id": "TC-I-29",
+  "name": "a customer is refused with 403",
+  "suite": "Administrator product maintenance"
+ },
+ {
+  "id": "TC-I-30",
+  "name": "an anonymous caller is refused with 401",
+  "suite": "Administrator product maintenance"
+ },
+ {
+  "id": "TC-I-31",
+  "name": "a product cannot be created in a category that does not exist",
+  "suite": "Administrator product maintenance"
+ },
+ {
+  "id": "TC-I-32",
+  "name": "deleting a product is a soft delete that preserves the record",
+  "suite": "Administrator product maintenance"
+ },
+ {
+  "id": "TC-I-33",
+  "name": "an update cannot write a field outside the permitted list",
+  "suite": "Administrator product maintenance"
+ },
+ {
+  "id": "TC-I-34",
+  "name": "lists categories with a live product count",
+  "suite": "Category endpoints"
+ },
+ {
+  "id": "TC-I-35",
+  "name": "refuses to delete a category that still holds products",
+  "suite": "Category endpoints"
+ },
+ {
+  "id": "TC-I-36a",
+  "name": "accepts a bundled root-relative illustration path",
+  "suite": "Product image validation"
+ },
+ {
+  "id": "TC-I-36b",
+  "name": "rejects a value that is neither a URL nor a path",
+  "suite": "Product image validation"
+ },
+ {
+  "id": "TC-U-37",
+  "name": "stores the password as a bcrypt hash, never in plain text",
+  "suite": "User model"
+ },
+ {
+  "id": "TC-U-38",
+  "name": "excludes the password from query results by default",
+  "suite": "User model"
+ },
+ {
+  "id": "TC-U-39",
+  "name": "verifies a correct password and refuses an incorrect one",
+  "suite": "User model"
+ },
+ {
+  "id": "TC-U-40",
+  "name": "enforces one account per email address, case-insensitively",
+  "suite": "User model"
+ },
+ {
+  "id": "TC-U-41",
+  "name": "rejects a malformed email address and a short password",
+  "suite": "User model"
+ },
+ {
+  "id": "TC-U-42",
+  "name": "does not re-hash the password when an unrelated field changes",
+  "suite": "User model"
+ },
+ {
+  "id": "TC-U-43",
+  "name": "rounds a fractional price to whole rupees",
+  "suite": "Product model"
+ },
+ {
+  "id": "TC-U-44",
+  "name": "refuses negative or fractional stock",
+  "suite": "Product model"
+ },
+ {
+  "id": "TC-U-45",
+  "name": "derives inStock and discountPercent virtuals",
+  "suite": "Product model"
+ },
+ {
+  "id": "TC-U-46",
+  "name": "derives a URL-safe slug from the name",
+  "suite": "Category model"
+ },
+ {
+  "id": "TC-U-47",
+  "name": "declares a state machine that forbids illegal transitions",
+  "suite": "Order model"
+ },
+ {
+  "id": "TC-U-48",
+  "name": "generates unique, unguessable invoice numbers",
+  "suite": "Order model"
+ },
+ {
+  "id": "TC-U-25",
+  "name": "rejects an empty cart",
+  "suite": "checkoutService.normaliseCartItems"
+ },
+ {
+  "id": "TC-U-26",
+  "name": "rejects a line whose product reference is malformed",
+  "suite": "checkoutService.normaliseCartItems"
+ },
+ {
+  "id": "TC-U-27",
+  "name": "rejects a fractional or zero quantity",
+  "suite": "checkoutService.normaliseCartItems"
+ },
+ {
+  "id": "TC-U-28",
+  "name": "merges duplicate lines for the same product",
+  "suite": "checkoutService.normaliseCartItems"
+ },
+ {
+  "id": "TC-U-29",
+  "name": "enforces the per-product quantity cap after merging",
+  "suite": "checkoutService.normaliseCartItems"
+ },
+ {
+  "id": "TC-U-30",
+  "name": "computes the total from database prices, ignoring the client",
+  "suite": "checkoutService.priceCart"
+ },
+ {
+  "id": "TC-U-31",
+  "name": "charges shipping below the free-shipping threshold",
+  "suite": "checkoutService.priceCart"
+ },
+ {
+  "id": "TC-U-32",
+  "name": "refuses to price more units than are in stock",
+  "suite": "checkoutService.priceCart"
+ },
+ {
+  "id": "TC-U-33",
+  "name": "refuses to price a withdrawn product",
+  "suite": "checkoutService.priceCart"
+ },
+ {
+  "id": "TC-U-34",
+  "name": "decrements stock atomically for every line",
+  "suite": "checkoutService.reserveStock"
+ },
+ {
+  "id": "TC-U-35",
+  "name": "rolls back earlier reservations when a later line fails",
+  "suite": "checkoutService.reserveStock"
+ },
+ {
+  "id": "TC-U-36",
+  "name": "never oversells under concurrent reservations",
+  "suite": "checkoutService.reserveStock"
+ },
+ {
+  "id": "TC-U-49",
+  "name": "resolves the calendar day in the target zone, not in UTC",
+  "suite": "calendar.toLocalDateKey"
+ },
+ {
+  "id": "TC-U-50",
+  "name": "keeps a late-evening local sale on the day it was made",
+  "suite": "calendar.toLocalDateKey"
+ },
+ {
+  "id": "TC-U-51",
+  "name": "pads month and day to two digits",
+  "suite": "calendar.toLocalDateKey"
+ },
+ {
+  "id": "TC-U-52",
+  "name": "returns exactly N keys, oldest first, ending today",
+  "suite": "calendar.lastNDateKeys"
+ },
+ {
+  "id": "TC-U-53",
+  "name": "produces a strictly increasing run with no gaps or repeats",
+  "suite": "calendar.lastNDateKeys"
+ },
+ {
+  "id": "TC-U-54",
+  "name": "includes today for a store east of Greenwich (the original bug)",
+  "suite": "calendar.lastNDateKeys"
+ },
+ {
+  "id": "TC-U-55",
+  "name": "the query lower bound precedes the oldest bucket",
+  "suite": "calendar.lastNDateKeys"
+ },
+ {
+  "id": "TC-U-14",
+  "name": "applies safe defaults when no parameters are supplied",
+  "suite": "catalogService.buildProductQuery"
+ },
+ {
+  "id": "TC-U-15",
+  "name": "turns a keyword into a $text search and sorts by relevance",
+  "suite": "catalogService.buildProductQuery"
+ },
+ {
+  "id": "TC-U-16",
+  "name": "accepts a valid category id and converts it to an ObjectId",
+  "suite": "catalogService.buildProductQuery"
+ },
+ {
+  "id": "TC-U-17",
+  "name": "silently ignores a category that is not a valid identifier",
+  "suite": "catalogService.buildProductQuery"
+ },
+ {
+  "id": "TC-U-18",
+  "name": "builds a bounded price filter",
+  "suite": "catalogService.buildProductQuery"
+ },
+ {
+  "id": "TC-U-19",
+  "name": "discards an inverted price band rather than returning nothing",
+  "suite": "catalogService.buildProductQuery"
+ },
+ {
+  "id": "TC-U-20",
+  "name": "caps the page size so a huge limit cannot be requested",
+  "suite": "catalogService.buildProductQuery"
+ },
+ {
+  "id": "TC-U-21",
+  "name": "falls back to page 1 for a non-numeric or negative page",
+  "suite": "catalogService.buildProductQuery"
+ },
+ {
+  "id": "TC-U-22",
+  "name": "computes skip from page and limit",
+  "suite": "catalogService.buildProductQuery"
+ },
+ {
+  "id": "TC-U-23",
+  "name": "accepts only whitelisted sort keys",
+  "suite": "catalogService.buildProductQuery"
+ },
+ {
+  "id": "TC-U-24",
+  "name": "never passes a raw object through as a filter value (injection)",
+  "suite": "catalogService.buildProductQuery"
+ },
+ {
+  "id": "TC-U-01",
+  "name": "accepts a number with a correct check digit",
+  "suite": "paymentService.passesLuhnCheck"
+ },
+ {
+  "id": "TC-U-02",
+  "name": "rejects a number with a single mistyped digit",
+  "suite": "paymentService.passesLuhnCheck"
+ },
+ {
+  "id": "TC-U-03",
+  "name": "rejects a string containing non-digits",
+  "suite": "paymentService.passesLuhnCheck"
+ },
+ {
+  "id": "TC-U-04",
+  "name": "accepts a date several years ahead",
+  "suite": "paymentService.isExpiryValid"
+ },
+ {
+  "id": "TC-U-05",
+  "name": "rejects a month that has already passed",
+  "suite": "paymentService.isExpiryValid"
+ },
+ {
+  "id": "TC-U-06",
+  "name": "rejects an out-of-range month",
+  "suite": "paymentService.isExpiryValid"
+ },
+ {
+  "id": "TC-U-07",
+  "name": "treats a card as valid through the last day of its expiry month",
+  "suite": "paymentService.isExpiryValid"
+ },
+ {
+  "id": "TC-U-08",
+  "name": "authorises a well-formed card and returns a transaction reference",
+  "suite": "paymentService.authoriseCardPayment"
+ },
+ {
+  "id": "TC-U-09",
+  "name": "retains only the last four digits of the card number",
+  "suite": "paymentService.authoriseCardPayment"
+ },
+ {
+  "id": "TC-U-10",
+  "name": "rejects an invalid card number with a 422 and field details",
+  "suite": "paymentService.authoriseCardPayment"
+ },
+ {
+  "id": "TC-U-11",
+  "name": "reports every invalid field at once rather than one at a time",
+  "suite": "paymentService.authoriseCardPayment"
+ },
+ {
+  "id": "TC-U-12",
+  "name": "declines a card ending in 0000 (simulated issuer decline)",
+  "suite": "paymentService.authoriseCardPayment"
+ },
+ {
+  "id": "TC-U-13",
+  "name": "records a cash order as unpaid with no card data",
+  "suite": "paymentService.registerCashOnDelivery"
+ }
+]

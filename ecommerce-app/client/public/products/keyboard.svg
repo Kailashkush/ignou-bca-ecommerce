@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef2ff"/><stop offset="1" stop-color="#dbe3ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <circle cx="132" cy="215" r="34" fill="#4338ca" opacity="0.05"/>
+  <circle cx="468" cy="385" r="23.799999999999997" fill="#4338ca" opacity="0.04"/>
+  <g transform="translate(150 150) scale(3)" fill="none" stroke="#4338ca"
+     stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
+    <rect x="10" y="32" width="80" height="40" rx="5"/><path d="M20 42h6M32 42h6M44 42h6M56 42h6M68 42h6M20 52h6M32 52h6M44 52h6M56 52h6M68 52h6M32 62h36"/>
+  </g>
+  <text x="300" y="545" text-anchor="middle" font-family="Inter, system-ui, sans-serif"
+        font-size="24" font-weight="700" letter-spacing="3" fill="#4338ca" opacity="0.5">
+    HELIX
+  </text>
+</svg>

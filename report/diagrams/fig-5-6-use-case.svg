@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1420 740" width="1420" height="740" font-family="Inter, Helvetica, Arial, sans-serif">
+<rect width="1420" height="740" fill="#ffffff"/>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/></marker>
+  <marker id="arrowb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#4f46e5"/></marker>
+</defs>
+<text x="710.0" y="36" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" >Figure 5.6   Use Case Diagram</text>
+<rect x="286" y="96" width="790" height="556" rx="16" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="681" y="124" font-size="13" fill="#64748b" font-weight="700" text-anchor="middle" >ShopSphere E-Commerce System</text>
+<circle cx="140" cy="336" r="13" fill="none" stroke="#0f172a" stroke-width="1.8"/>
+<line x1="140" y1="349" x2="140" y2="380" stroke="#0f172a" stroke-width="1.8"/>
+<line x1="123" y1="360" x2="157" y2="360" stroke="#0f172a" stroke-width="1.8"/>
+<line x1="140" y1="380" x2="126" y2="402" stroke="#0f172a" stroke-width="1.8"/>
+<line x1="140" y1="380" x2="154" y2="402" stroke="#0f172a" stroke-width="1.8"/>
+<text x="140" y="422" font-size="13" fill="#0f172a" font-weight="700" text-anchor="middle" >Customer</text>
+<circle cx="1250" cy="336" r="13" fill="none" stroke="#0f172a" stroke-width="1.8"/>
+<line x1="1250" y1="349" x2="1250" y2="380" stroke="#0f172a" stroke-width="1.8"/>
+<line x1="1233" y1="360" x2="1267" y2="360" stroke="#0f172a" stroke-width="1.8"/>
+<line x1="1250" y1="380" x2="1236" y2="402" stroke="#0f172a" stroke-width="1.8"/>
+<line x1="1250" y1="380" x2="1264" y2="402" stroke="#0f172a" stroke-width="1.8"/>
+<text x="1250" y="422" font-size="13" fill="#0f172a" font-weight="700" text-anchor="middle" >Store Administrator</text>
+<ellipse cx="460" cy="190" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="460" y="194" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >Register an account</text>
+<line x1="164" y1="374" x2="318" y2="190" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="460" cy="252" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="460" y="256" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >Sign in / sign out</text>
+<line x1="164" y1="374" x2="318" y2="252" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="460" cy="314" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="460" y="318" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >Search and filter catalogue</text>
+<line x1="164" y1="374" x2="318" y2="314" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="460" cy="376" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="460" y="380" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >View product detail</text>
+<line x1="164" y1="374" x2="318" y2="376" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="460" cy="438" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="460" y="442" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >Manage shopping cart</text>
+<line x1="164" y1="374" x2="318" y2="438" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="460" cy="500" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="460" y="504" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >Place an order</text>
+<line x1="164" y1="374" x2="318" y2="500" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="460" cy="562" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="460" y="566" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >Track and cancel an order</text>
+<line x1="164" y1="374" x2="318" y2="562" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="902" cy="221" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="902" y="225" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >Maintain product catalogue</text>
+<line x1="1226" y1="374" x2="1044" y2="221" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="902" cy="283" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="902" y="287" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >Maintain categories</text>
+<line x1="1226" y1="374" x2="1044" y2="283" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="902" cy="345" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="902" y="349" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >Adjust stock levels</text>
+<line x1="1226" y1="374" x2="1044" y2="345" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="902" cy="407" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="902" y="411" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >Progress order status</text>
+<line x1="1226" y1="374" x2="1044" y2="407" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="902" cy="469" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="902" y="473" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >Manage customer accounts</text>
+<line x1="1226" y1="374" x2="1044" y2="469" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<ellipse cx="902" cy="531" rx="140" ry="25" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.5"/>
+<text x="902" y="535" font-size="12" fill="#0f172a" font-weight="500" text-anchor="middle" >View sales dashboard</text>
+<line x1="1226" y1="374" x2="1044" y2="531" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="710.0" y="716" font-size="12" fill="#64748b" font-weight="500" text-anchor="middle" >Seven customer use cases and six administrative use cases. Signing in is a precondition for placing, tracking and cancelling an order.</text>
+</svg>

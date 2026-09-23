@@ -1,0 +1,187 @@
+PASS tests/integration/order.test.js (10.047 s)
+  POST /api/orders/quote
+    ✓ TC-I-36 returns the authoritative total without placing an order (457 ms)
+  POST /api/orders
+    ✓ TC-I-37 places a card order, decrements stock and returns an invoice (419 ms)
+    ✓ TC-I-38 recomputes the price and ignores client-supplied amounts (422 ms)
+    ✓ TC-I-39 stores no card number or CVV anywhere on the order (416 ms)
+    ✓ TC-I-40 releases reserved stock when the payment is declined (410 ms)
+    ✓ TC-I-41 refuses an order for more units than are in stock (414 ms)
+    ✓ TC-I-42 places a cash-on-delivery order as PENDING and unpaid (414 ms)
+    ✓ TC-I-43 rejects an invalid pincode in the shipping address (414 ms)
+    ✓ TC-I-44 refuses an anonymous checkout (414 ms)
+    ✓ TC-I-45 does not oversell when two customers race for the last unit (623 ms)
+  Reading orders
+    ✓ TC-I-46 a customer can read their own order (421 ms)
+    ✓ TC-I-47 a customer cannot read another customer’s order (620 ms)
+    ✓ TC-I-48 an administrator can read any order (414 ms)
+    ✓ TC-I-49 the order list is scoped to the calling customer (623 ms)
+    ✓ TC-I-50 a customer cannot list every order in the store (411 ms)
+  Order status management
+    ✓ TC-I-51 an administrator advances the order through legal states (417 ms)
+    ✓ TC-I-52 an illegal state transition is refused with 409 (423 ms)
+    ✓ TC-I-53 cancelling an order returns the stock to the catalogue (426 ms)
+    ✓ TC-I-54 a shipped order can no longer be cancelled by the customer (419 ms)
+    ✓ TC-I-55 a cash order is marked paid when it is delivered (425 ms)
+
+PASS tests/integration/auth.test.js (5.183 s)
+  POST /api/auth/register
+    ✓ TC-I-01 creates an account and returns a token (249 ms)
+    ✓ TC-I-02 never returns the password hash in the response body (209 ms)
+    ✓ TC-I-03 refuses a duplicate email address with 409 (211 ms)
+    ✓ TC-I-04 rejects a weak password and lists the reason (1 ms)
+    ✓ TC-I-05 rejects a malformed email address (1 ms)
+    ✓ TC-I-06 ignores a role supplied in the body (privilege escalation) (206 ms)
+  POST /api/auth/login
+    ✓ TC-I-07 signs in with correct credentials (422 ms)
+    ✓ TC-I-08 rejects a wrong password with 401 (410 ms)
+    ✓ TC-I-09 gives an identical message for unknown email and wrong password (410 ms)
+    ✓ TC-I-10 resists a NoSQL operator injection in the credentials (209 ms)
+    ✓ TC-I-11 refuses a deactivated account with 403 (413 ms)
+  GET /api/auth/me
+    ✓ TC-I-12 returns the signed-in user for a valid token (207 ms)
+    ✓ TC-I-13 refuses a request with no token (1 ms)
+    ✓ TC-I-14 refuses a tampered token (209 ms)
+  PATCH /api/auth/me/password
+    ✓ TC-I-15 changes the password and issues a fresh token (832 ms)
+    ✓ TC-I-16 refuses the change when the current password is wrong (413 ms)
+
+PASS tests/integration/admin.test.js
+  GET /api/admin/dashboard
+    ✓ TC-I-56 aggregates revenue, order count and the 14-day series (474 ms)
+    ✓ TC-I-57 reports zeroes rather than failing on an empty store (210 ms)
+    ✓ TC-I-58 flags products at or below the low-stock threshold (210 ms)
+    ✓ TC-I-59 refuses a customer with 403 (208 ms)
+  User administration
+    ✓ TC-I-60 lists users and never exposes a password hash (414 ms)
+    ✓ TC-I-61 searches users by name or email (615 ms)
+    ✓ TC-I-62 deactivating an account takes effect on the next request (417 ms)
+    ✓ TC-I-63 an administrator cannot deactivate their own account (207 ms)
+  Dashboard sales window
+    ✓ TC-I-64 the 14-day window ends on the current local day (208 ms)
+    ✓ TC-I-65 an order placed today lands in the final bucket (422 ms)
+
+PASS tests/integration/product.test.js
+  GET /api/products
+    ✓ TC-I-17 lists active products with pagination metadata (31 ms)
+    ✓ TC-I-18 finds products by keyword using the text index (9 ms)
+    ✓ TC-I-19 filters by price band (11 ms)
+    ✓ TC-I-20 filters out items with no stock when asked (7 ms)
+    ✓ TC-I-21 sorts by price ascending (6 ms)
+    ✓ TC-I-22 paginates correctly (7 ms)
+    ✓ TC-I-23 excludes withdrawn (soft-deleted) products (5 ms)
+    ✓ TC-I-24 rejects a non-numeric price filter with 422 (3 ms)
+  GET /api/products/:id
+    ✓ TC-I-25 returns full detail for an existing product (3 ms)
+    ✓ TC-I-26 returns 422 for a malformed identifier (1 ms)
+    ✓ TC-I-27 returns 404 for an identifier that does not exist (2 ms)
+  Administrator product maintenance
+    ✓ TC-I-28 an administrator can create a product (420 ms)
+    ✓ TC-I-29 a customer is refused with 403 (413 ms)
+    ✓ TC-I-30 an anonymous caller is refused with 401 (415 ms)
+    ✓ TC-I-31 a product cannot be created in a category that does not exist (416 ms)
+    ✓ TC-I-32 deleting a product is a soft delete that preserves the record (417 ms)
+    ✓ TC-I-33 an update cannot write a field outside the permitted list (414 ms)
+  Category endpoints
+    ✓ TC-I-34 lists categories with a live product count (3 ms)
+    ✓ TC-I-35 refuses to delete a category that still holds products (208 ms)
+  Product image validation
+    ✓ TC-I-36a accepts a bundled root-relative illustration path (212 ms)
+    ✓ TC-I-36b rejects a value that is neither a URL nor a path (209 ms)
+
+PASS tests/system/customerJourney.test.js
+  TC-S-01 Registration to delivery, end to end
+    ✓ a new visitor can register, search, add to cart, pay and be delivered (479 ms)
+  TC-S-02 Browse, filter and paginate a populated catalogue
+    ✓ a visitor can narrow a catalogue down to a single product (9 ms)
+  TC-S-03 Cancel an order and buy again
+    ✓ cancelled stock returns to the catalogue and can be resold (637 ms)
+  TC-S-04 Administrator catalogue lifecycle
+    ✓ an administrator can create, restock, withdraw and account for a product (224 ms)
+  TC-S-05 Session lifecycle across a password change
+    ✓ a customer keeps working after changing their password (1046 ms)
+
+PASS tests/unit/models.test.js
+  User model
+    ✓ TC-U-37 stores the password as a bcrypt hash, never in plain text (230 ms)
+    ✓ TC-U-38 excludes the password from query results by default (204 ms)
+    ✓ TC-U-39 verifies a correct password and refuses an incorrect one (618 ms)
+    ✓ TC-U-40 enforces one account per email address, case-insensitively (412 ms)
+    ✓ TC-U-41 rejects a malformed email address and a short password (2 ms)
+    ✓ TC-U-42 does not re-hash the password when an unrelated field changes (209 ms)
+  Product model
+    ✓ TC-U-43 rounds a fractional price to whole rupees (2 ms)
+    ✓ TC-U-44 refuses negative or fractional stock (1 ms)
+    ✓ TC-U-45 derives inStock and discountPercent virtuals (1 ms)
+  Category model
+    ✓ TC-U-46 derives a URL-safe slug from the name (1 ms)
+  Order model
+    ✓ TC-U-47 declares a state machine that forbids illegal transitions
+    ✓ TC-U-48 generates unique, unguessable invoice numbers (1 ms)
+
+PASS tests/unit/checkoutService.test.js
+  checkoutService.normaliseCartItems
+    ✓ TC-U-25 rejects an empty cart (7 ms)
+    ✓ TC-U-26 rejects a line whose product reference is malformed (5 ms)
+    ✓ TC-U-27 rejects a fractional or zero quantity (2 ms)
+    ✓ TC-U-28 merges duplicate lines for the same product (2 ms)
+    ✓ TC-U-29 enforces the per-product quantity cap after merging (1 ms)
+  checkoutService.priceCart
+    ✓ TC-U-30 computes the total from database prices, ignoring the client (7 ms)
+    ✓ TC-U-31 charges shipping below the free-shipping threshold (3 ms)
+    ✓ TC-U-32 refuses to price more units than are in stock (2 ms)
+    ✓ TC-U-33 refuses to price a withdrawn product (2 ms)
+  checkoutService.reserveStock
+    ✓ TC-U-34 decrements stock atomically for every line (5 ms)
+    ✓ TC-U-35 rolls back earlier reservations when a later line fails (5 ms)
+    ✓ TC-U-36 never oversells under concurrent reservations (5 ms)
+
+PASS tests/unit/calendar.test.js
+  calendar.toLocalDateKey
+    ✓ TC-U-49 resolves the calendar day in the target zone, not in UTC (1 ms)
+    ✓ TC-U-50 keeps a late-evening local sale on the day it was made
+    ✓ TC-U-51 pads month and day to two digits
+  calendar.lastNDateKeys
+    ✓ TC-U-52 returns exactly N keys, oldest first, ending today (1 ms)
+    ✓ TC-U-53 produces a strictly increasing run with no gaps or repeats (1 ms)
+    ✓ TC-U-54 includes today for a store east of Greenwich (the original bug) (1 ms)
+    ✓ TC-U-55 the query lower bound precedes the oldest bucket
+
+PASS tests/unit/catalogService.test.js
+  catalogService.buildProductQuery
+    ✓ TC-U-14 applies safe defaults when no parameters are supplied
+    ✓ TC-U-15 turns a keyword into a $text search and sorts by relevance (1 ms)
+    ✓ TC-U-16 accepts a valid category id and converts it to an ObjectId
+    ✓ TC-U-17 silently ignores a category that is not a valid identifier
+    ✓ TC-U-18 builds a bounded price filter
+    ✓ TC-U-19 discards an inverted price band rather than returning nothing
+    ✓ TC-U-20 caps the page size so a huge limit cannot be requested
+    ✓ TC-U-21 falls back to page 1 for a non-numeric or negative page
+    ✓ TC-U-22 computes skip from page and limit
+    ✓ TC-U-23 accepts only whitelisted sort keys
+    ✓ TC-U-24 never passes a raw object through as a filter value (injection)
+
+PASS tests/unit/payment.test.js
+  paymentService.passesLuhnCheck
+    ✓ TC-U-01 accepts a number with a correct check digit
+    ✓ TC-U-02 rejects a number with a single mistyped digit
+    ✓ TC-U-03 rejects a string containing non-digits
+  paymentService.isExpiryValid
+    ✓ TC-U-04 accepts a date several years ahead
+    ✓ TC-U-05 rejects a month that has already passed
+    ✓ TC-U-06 rejects an out-of-range month
+    ✓ TC-U-07 treats a card as valid through the last day of its expiry month
+  paymentService.authoriseCardPayment
+    ✓ TC-U-08 authorises a well-formed card and returns a transaction reference
+    ✓ TC-U-09 retains only the last four digits of the card number
+    ✓ TC-U-10 rejects an invalid card number with a 422 and field details
+    ✓ TC-U-11 reports every invalid field at once rather than one at a time
+    ✓ TC-U-12 declines a card ending in 0000 (simulated issuer decline)
+  paymentService.registerCashOnDelivery
+    ✓ TC-U-13 records a cash order as unpaid with no card data
+
+Test Suites: 10 passed, 10 total
+Tests:       127 passed, 127 total
+Snapshots:   0 total
+Time:        31.425 s, estimated 32 s
+Ran all test suites.

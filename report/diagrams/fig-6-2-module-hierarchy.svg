@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700" width="1400" height="700" font-family="Inter, Helvetica, Arial, sans-serif">
+<rect width="1400" height="700" fill="#ffffff"/>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/></marker>
+  <marker id="arrowb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#4f46e5"/></marker>
+</defs>
+<text x="700.0" y="36" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" >Figure 6.2   Module Hierarchy (Structure Chart)</text>
+<rect x="550.0" y="67.0" width="300" height="58" rx="9" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.6"/>
+<text x="700" y="90" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >ShopSphere Application</text>
+<text x="700" y="109" font-size="10" fill="#64748b" font-weight="400" text-anchor="middle" >app.js — middleware chain + routers</text>
+<rect x="95.0" y="211.0" width="190" height="54" rx="9" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.6"/>
+<text x="190" y="232" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >Identity</text>
+<text x="190" y="251" font-size="10" fill="#64748b" font-weight="400" text-anchor="middle" >6 endpoints</text>
+<polyline points="700,125 700,180 190,180 190,209" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="335.0" y="211.0" width="190" height="54" rx="9" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.6"/>
+<text x="430" y="232" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >Catalogue</text>
+<text x="430" y="251" font-size="10" fill="#64748b" font-weight="400" text-anchor="middle" >7 endpoints</text>
+<polyline points="700,125 700,180 430,180 430,209" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="605.0" y="211.0" width="190" height="54" rx="9" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.6"/>
+<text x="700" y="232" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >Cart</text>
+<text x="700" y="251" font-size="10" fill="#64748b" font-weight="400" text-anchor="middle" >client-side context</text>
+<polyline points="700,125 700,180 700,180 700,209" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="865.0" y="211.0" width="190" height="54" rx="9" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.6"/>
+<text x="960" y="232" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >Checkout</text>
+<text x="960" y="251" font-size="10" fill="#64748b" font-weight="400" text-anchor="middle" >3 endpoints</text>
+<polyline points="700,125 700,180 960,180 960,209" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="1125.0" y="211.0" width="190" height="54" rx="9" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.6"/>
+<text x="1220" y="232" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >Administration</text>
+<text x="1220" y="251" font-size="10" fill="#64748b" font-weight="400" text-anchor="middle" >5 endpoints</text>
+<polyline points="700,125 700,180 1220,180 1220,209" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<polyline points="190,265 190,300 72,300" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+<line x1="72" y1="300" x2="72" y2="534" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="100.0" y="326.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="190" y="353" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >authController</text>
+<line x1="72" y1="348" x2="100" y2="348" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="100.0" y="388.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="190" y="415" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >auth middleware</text>
+<line x1="72" y1="410" x2="100" y2="410" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="100.0" y="450.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="190" y="477" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >token utility</text>
+<line x1="72" y1="472" x2="100" y2="472" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="100.0" y="512.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="190" y="539" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >User model</text>
+<line x1="72" y1="534" x2="100" y2="534" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<polyline points="430,265 430,300 312,300" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+<line x1="312" y1="300" x2="312" y2="534" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="340.0" y="326.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="430" y="353" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >productController</text>
+<line x1="312" y1="348" x2="340" y2="348" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="340.0" y="388.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="430" y="415" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >categoryController</text>
+<line x1="312" y1="410" x2="340" y2="410" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="340.0" y="450.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="430" y="477" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >catalogService</text>
+<line x1="312" y1="472" x2="340" y2="472" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="340.0" y="512.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="430" y="539" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >Product / Category</text>
+<line x1="312" y1="534" x2="340" y2="534" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<polyline points="700,265 700,300 582,300" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+<line x1="582" y1="300" x2="582" y2="534" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="610.0" y="326.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="700" y="353" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >CartContext</text>
+<line x1="582" y1="348" x2="610" y2="348" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="610.0" y="388.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="700" y="415" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >cart reducer</text>
+<line x1="582" y1="410" x2="610" y2="410" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="610.0" y="450.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="700" y="477" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >localStorage sync</text>
+<line x1="582" y1="472" x2="610" y2="472" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="610.0" y="512.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="700" y="539" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >quantity caps</text>
+<line x1="582" y1="534" x2="610" y2="534" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<polyline points="960,265 960,300 842,300" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+<line x1="842" y1="300" x2="842" y2="534" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="870.0" y="326.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="960" y="353" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >orderController</text>
+<line x1="842" y1="348" x2="870" y2="348" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="870.0" y="388.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="960" y="415" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >checkoutService</text>
+<line x1="842" y1="410" x2="870" y2="410" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="870.0" y="450.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="960" y="477" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >paymentService</text>
+<line x1="842" y1="472" x2="870" y2="472" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="870.0" y="512.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="960" y="539" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >Order model</text>
+<line x1="842" y1="534" x2="870" y2="534" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<polyline points="1220,265 1220,300 1102,300" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+<line x1="1102" y1="300" x2="1102" y2="534" stroke="#94a3b8" stroke-width="1.5"/>
+<rect x="1130.0" y="326.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="1220" y="353" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >adminController</text>
+<line x1="1102" y1="348" x2="1130" y2="348" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="1130.0" y="388.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="1220" y="415" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >calendar utility</text>
+<line x1="1102" y1="410" x2="1130" y2="410" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="1130.0" y="450.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="1220" y="477" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >aggregation pipelines</text>
+<line x1="1102" y1="472" x2="1130" y2="472" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="1130.0" y="512.0" width="180" height="44" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="1220" y="539" font-size="12.5" fill="#0f172a" font-weight="700" text-anchor="middle" >dashboard screens</text>
+<line x1="1102" y1="534" x2="1130" y2="534" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="700.0" y="676" font-size="12" fill="#64748b" font-weight="500" text-anchor="middle" >Five functional modules under a single application shell. Each module owns its controller, its service logic and its data model, which keeps coupling between modules low.</text>
+</svg>

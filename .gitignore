@@ -1,0 +1,33 @@
+node_modules/
+dist/
+coverage/
+.env
+*.log
+.DS_Store
+__pycache__/
+
+# Generated intermediates from the print pipeline
+report/_print_build/
+report/_audit/
+synopsis/_build/
+forms/_build/
+report/node_modules
+
+# ---------------------------------------------------------------------------
+# Full-detail documents.
+#
+# These carry the student's and the guide's contact details, which IGNOU needs
+# on the proforma and the certificate but which have no business on a public,
+# search-indexed page. Only the *_PUBLIC builds are committed. Rebuild these
+# locally when you need to print:  python3 build_print.py
+# ---------------------------------------------------------------------------
+# Real contact details for the bound submission; a clone without this file
+# builds the redacted documents automatically. See contact_details.example.py.
+report/contact_details.py
+
+report/BCA_Project_BCSP064_Kailash_Kumar_Jha_PRINT_READY.pdf
+report/BCA_Project_Report_BCSP064_Kailash_Kumar_Jha.docx
+synopsis/BCA_Project_Synopsis_BCSP064_Kailash_Kumar_Jha_PRINT_READY.pdf
+synopsis/BCA_Project_Synopsis_BCSP064_Kailash_Kumar_Jha.docx
+forms/BCSP064_Submission_Forms_PRINT_READY.pdf
+forms/BCSP064_Submission_Forms_Signature_Pages.docx

@@ -1,0 +1,77 @@
+# ---------------------------------------------------------------------------
+# Render blueprint for ShopSphere.
+#
+# Two services: the Express API as a web service, and the built React bundle as
+# a static site. MongoDB is NOT defined here — Render has no managed MongoDB, so
+# the database lives on a free MongoDB Atlas cluster and is supplied through the
+# MONGO_URI environment variable (see DEPLOY.md).
+#
+# Deploy with: Render dashboard -> New -> Blueprint -> point at this repository.
+# ---------------------------------------------------------------------------
+services:
+  # --- REST API ------------------------------------------------------------
+  - type: web
+    name: shopsphere-api
+    runtime: node
+    plan: free
+    region: singapore              # closest region to Indian users
+    rootDir: ecommerce-app/server
+    buildCommand: npm ci --omit=dev
+    startCommand: node src/server.js
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000               # the port Render expects a web service to bind
+      - key: JWT_SECRET
+        generateValue: true        # Render generates a strong secret; never committed
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: STORE_TIMEZONE
+        value: Asia/Kolkata
+      - key: MONGO_URI
+        sync: false                # set by hand in the dashboard from Atlas
+      - key: CLIENT_ORIGIN
+        fromService:
+          type: web
+          name: shopsphere-web
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: SEED_ADMIN_EMAIL
+        value: admin@shopsphere.test
+      - key: SEED_ADMIN_PASSWORD
+        sync: false                # set by hand; do not commit a real password
+
+  # --- React single-page application ---------------------------------------
+  - type: web
+    name: shopsphere-web
+    runtime: static
+    plan: free
+    rootDir: ecommerce-app/client
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    autoDeploy: true
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: shopsphere-api
+          envVarKey: RENDER_EXTERNAL_URL
+    routes:
+      # A single-page application serves index.html for every path, so that a
+      # deep link such as /products/abc123 is routed by react-router rather
+      # than returning a 404 from the static host.
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable

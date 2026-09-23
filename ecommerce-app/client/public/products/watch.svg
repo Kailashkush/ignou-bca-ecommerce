@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdf2f8"/><stop offset="1" stop-color="#fce7f3"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <circle cx="121" cy="386" r="93" fill="#be185d" opacity="0.05"/>
+  <circle cx="479" cy="214" r="65.1" fill="#be185d" opacity="0.04"/>
+  <g transform="translate(150 150) scale(3)" fill="none" stroke="#be185d"
+     stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
+    <rect x="30" y="28" width="40" height="44" rx="8"/><path d="M38 28V14h24v14M38 72v14h24V72M50 42v12l8 5"/>
+  </g>
+  <text x="300" y="545" text-anchor="middle" font-family="Inter, system-ui, sans-serif"
+        font-size="24" font-weight="700" letter-spacing="3" fill="#be185d" opacity="0.5">
+    MERIDIAN
+  </text>
+</svg>

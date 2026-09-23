@@ -1,0 +1,60 @@
+PASS tests/integration/order.test.js (10.306 s)
+PASS tests/integration/auth.test.js (5.209 s)
+PASS tests/integration/admin.test.js
+PASS tests/integration/product.test.js
+PASS tests/system/customerJourney.test.js
+PASS tests/unit/models.test.js
+PASS tests/unit/checkoutService.test.js
+PASS tests/unit/calendar.test.js
+PASS tests/unit/catalogService.test.js
+PASS tests/unit/payment.test.js
+------------------------|---------|----------|---------|---------|---------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
+------------------------|---------|----------|---------|---------|---------------------
+All files               |   86.18 |    68.48 |      86 |   88.36 |                     
+ src                    |   91.66 |    33.33 |       0 |   91.66 |                     
+  app.js                |   91.66 |    33.33 |       0 |   91.66 | 58,64               
+ src/config             |   56.25 |    44.44 |      50 |      60 |                     
+  db.js                 |    40.9 |    35.71 |   33.33 |      45 | 22-48               
+  env.js                |      90 |       50 |     100 |      90 | 40                  
+ src/controllers        |   82.39 |    65.38 |   88.23 |   87.19 |                     
+  adminController.js    |   95.23 |    88.46 |     100 |    97.5 | 142                 
+  authController.js     |      80 |    68.75 |   83.33 |   83.33 | 82-89,105           
+  categoryController.js |   66.66 |    28.57 |   83.33 |   75.86 | 43-51               
+  orderController.js    |   82.35 |     62.5 |    87.5 |   86.07 | 151,176-194,223-225 
+  productController.js  |   84.74 |    66.66 |    87.5 |   90.38 | 70-83,120           
+ src/middleware         |   68.23 |    46.42 |      75 |   69.33 |                     
+  auth.js               |   71.05 |       60 |      80 |   74.28 | 43,60,74-83         
+  errorHandler.js       |   48.38 |    34.37 |      50 |   48.14 | 16,27-54,66         
+  rateLimiter.js        |     100 |      100 |     100 |     100 |                     
+  validate.js           |     100 |       75 |     100 |     100 | 17                  
+ src/models             |   94.73 |    81.25 |   88.88 |   94.54 |                     
+  Category.js           |     100 |       50 |     100 |     100 | 32                  
+  Order.js              |     100 |      100 |     100 |     100 |                     
+  Product.js            |     100 |     87.5 |     100 |     100 | 43                  
+  User.js               |   84.21 |      100 |   66.66 |   83.33 | 81-82,102           
+ src/routes             |   98.87 |    83.33 |   83.33 |   98.83 |                     
+  adminRoutes.js        |     100 |      100 |     100 |     100 |                     
+  authRoutes.js         |     100 |      100 |     100 |     100 |                     
+  categoryRoutes.js     |     100 |      100 |     100 |     100 |                     
+  index.js              |      90 |      100 |       0 |      90 | 7                   
+  orderRoutes.js        |     100 |      100 |     100 |     100 |                     
+  productRoutes.js      |     100 |    83.33 |     100 |     100 | 35                  
+ src/services           |   93.71 |     88.8 |   88.88 |   93.91 |                     
+  catalogService.js     |     100 |     97.5 |     100 |     100 | 32                  
+  checkoutService.js    |   90.14 |    78.37 |   84.61 |    89.7 | 60,225-233          
+  paymentService.js     |   94.11 |    89.58 |     100 |   95.65 | 72,98               
+ src/utils              |   97.87 |    55.55 |     100 |   97.77 |                     
+  ApiError.js           |     100 |       25 |     100 |     100 | 27-33               
+  asyncHandler.js       |     100 |      100 |     100 |     100 |                     
+  calendar.js           |     100 |      100 |     100 |     100 |                     
+  invoice.js            |     100 |      100 |     100 |     100 |                     
+  slugify.js            |     100 |      100 |     100 |     100 |                     
+  token.js              |      90 |       50 |     100 |      90 | 37                  
+------------------------|---------|----------|---------|---------|---------------------
+
+Test Suites: 10 passed, 10 total
+Tests:       127 passed, 127 total
+Snapshots:   0 total
+Time:        31.806 s, estimated 32 s
+Ran all test suites.

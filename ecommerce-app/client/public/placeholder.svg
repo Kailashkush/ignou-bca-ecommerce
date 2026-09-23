@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <rect width="400" height="400" fill="#eef1f6"/>
+  <g fill="none" stroke="#b6c0d4" stroke-width="8" stroke-linejoin="round">
+    <path d="M140 160h120l-14 96a16 16 0 0 1-16 14h-60a16 16 0 0 1-16-14l-14-96Z"/>
+    <path d="M172 160v-16a28 28 0 0 1 56 0v16" stroke-linecap="round"/>
+  </g>
+  <text x="200" y="320" font-family="system-ui, sans-serif" font-size="20"
+        fill="#93a0b8" text-anchor="middle">Image unavailable</text>
+</svg>

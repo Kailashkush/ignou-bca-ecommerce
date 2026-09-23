@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#faf5ff"/><stop offset="1" stop-color="#f3e8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <circle cx="138" cy="339" r="120" fill="#7e22ce" opacity="0.05"/>
+  <circle cx="462" cy="261" r="84" fill="#7e22ce" opacity="0.04"/>
+  <g transform="translate(150 150) scale(3)" fill="none" stroke="#7e22ce"
+     stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.92">
+    <rect x="38" y="16" width="24" height="50" rx="5"/><path d="M32 66h36l-4 20H36zM44 28h12"/>
+  </g>
+  <text x="300" y="545" text-anchor="middle" font-family="Inter, system-ui, sans-serif"
+        font-size="24" font-weight="700" letter-spacing="3" fill="#7e22ce" opacity="0.5">
+    BARBERS ROW
+  </text>
+</svg>
