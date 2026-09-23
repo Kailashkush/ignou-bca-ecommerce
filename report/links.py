@@ -8,7 +8,7 @@ the printed copy. Change them here and rebuild; nothing else references them.
 Set to None to omit that entry (and its QR code) entirely.
 """
 
-GITHUB_URL = None      # e.g. 'https://github.com/<user>/ignou-bca-ecommerce'
+GITHUB_URL = 'https://github.com/Kailashkush/ignou-bca-ecommerce'
 LIVE_URL = None        # e.g. 'https://shopsphere-web.onrender.com'
 
 # Shown beneath each code so the page is still usable without a phone.

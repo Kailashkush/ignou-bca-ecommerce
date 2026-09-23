@@ -206,18 +206,25 @@ class HtmlReport:
     def screenshot(self, filename, caption, width_inches=6.1):
         return self.figure(filename, caption, width_inches, folder='screenshots')
 
-    def figure_row(self, entries, folder='screenshots', gap_caption=None):
+    def figure_row(self, entries, folder='screenshots', gap_caption=None,
+                   numbered=True):
+        """`numbered=False` gives an unnumbered caption — used for front-matter
+        wayfinding such as the QR codes, which are not figures in the
+        analytical sense and must not consume a number from the body's
+        sequence."""
         cells, labels = [], []
         for filename, caption, width in entries:
-            label = self._fig_label()
-            labels.append(label)
+            label = self._fig_label() if numbered else None
+            if label:
+                labels.append(label)
             src = (BASE / folder / filename).as_uri()
+            text = f'{esc(label)}: {esc(caption)}' if label else esc(caption)
             cells.append(
                 f'<div class="figcell">'
                 f'<img src="{src}" style="width:{width}in">'
-                f'<div class="figcap">{esc(label)}: {esc(caption)}</div>'
+                f'<div class="figcap">{text}</div>'
                 f'</div>')
-            if not self.aux:
+            if label and not self.aux:
                 self.figures.append((label, caption))
         self.parts.append(f'<div class="figrow">{"".join(cells)}</div>')
         return labels

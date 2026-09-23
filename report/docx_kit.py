@@ -259,7 +259,8 @@ class Report:
         return self.figure(filename, caption, width_inches, folder='screenshots')
 
 
-    def figure_row(self, entries, folder='screenshots', gap_caption=None):
+    def figure_row(self, entries, folder='screenshots', gap_caption=None,
+                   numbered=True):
         """Places several images side by side in one borderless row, with a
         numbered caption beneath each. Used for the responsive screenshots,
         where three tall phone captures would otherwise consume a page each."""
@@ -269,13 +270,18 @@ class Report:
         table.autofit = False
         labels = []
         for i, (filename, caption, width) in enumerate(entries):
-            if self.aux:
+            # An unnumbered row is front-matter wayfinding, not a figure; it
+            # must not consume a number from the body's sequence.
+            if not numbered:
+                label = None
+            elif self.aux:
                 self.aux_figure_no += 1
                 label = f'Figure S{self.aux_figure_no}'
             else:
                 self.figure_no += 1
                 label = f'Figure {self.figure_no}'
-            labels.append(label)
+            if label:
+                labels.append(label)
             path = BASE / folder / filename
             cell = table.rows[0].cells[i]
             cell.width = Inches(6.1 / len(entries))
@@ -398,6 +404,18 @@ class Report:
         para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.SINGLE
         _field(para, f' TOC \\o "{levels}" \\h \\z \\u ')
 
+    @staticmethod
+    def _colour(value):
+        """Accepts an RGBColor or a '#rrggbb' string.
+
+        The HTML renderer takes hex strings, so the content modules use them.
+        Coercing here keeps a single content module working against both
+        renderers instead of each one having to know which it is driving.
+        """
+        if value is None or isinstance(value, RGBColor):
+            return value
+        return RGBColor.from_string(str(value).lstrip('#').upper())
+
     def centered(self, text, size=12, bold=False, italic=False, space_after=6,
                  caps=False, colour=None):
         para = self.doc.add_paragraph()
@@ -407,7 +425,7 @@ class Report:
         run = para.add_run(text.upper() if caps else text)
         run.font.size = Pt(size); run.bold = bold; run.italic = italic
         if colour is not None:
-            run.font.color.rgb = colour
+            run.font.color.rgb = self._colour(colour)
         return para
 
 

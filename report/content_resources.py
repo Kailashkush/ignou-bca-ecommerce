@@ -42,7 +42,8 @@ def build(r):
         entries.append(('qr-live.png', 'Live application', 1.75))
 
     if entries:
-        r.figure_row(entries, folder='diagrams')
+        # Unnumbered: these are wayfinding, not analytical figures.
+        r.figure_row(entries, folder='diagrams', numbered=False)
 
     rows = []
     if links.GITHUB_URL:
