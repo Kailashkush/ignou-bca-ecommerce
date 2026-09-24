@@ -33,11 +33,11 @@ services:
         value: Asia/Kolkata
       - key: MONGO_URI
         sync: false                # set by hand in the dashboard from Atlas
+      # Render cannot reference a static site's public URL from another
+      # service, so this is typed in: e.g. https://shopsphere-web.onrender.com
+      # (scheme included, no trailing slash).
       - key: CLIENT_ORIGIN
-        fromService:
-          type: web
-          name: shopsphere-web
-          envVarKey: RENDER_EXTERNAL_URL
+        sync: false
       - key: SEED_ADMIN_EMAIL
         value: admin@shopsphere.test
       - key: SEED_ADMIN_PASSWORD
@@ -53,11 +53,10 @@ services:
     staticPublishPath: dist
     autoDeploy: true
     envVars:
+      # Typed in, e.g. https://shopsphere-api.onrender.com (no trailing /api).
+      # Read at build time: change it, then redeploy the site.
       - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: shopsphere-api
-          envVarKey: RENDER_EXTERNAL_URL
+        sync: false
     routes:
       # A single-page application serves index.html for every path, so that a
       # deep link such as /products/abc123 is routed by react-router rather
