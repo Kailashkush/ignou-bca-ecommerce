@@ -46,8 +46,7 @@ services:
   # --- React single-page application ---------------------------------------
   - type: web
     name: shopsphere-web
-    runtime: static
-    plan: free
+    runtime: static                # static sites are always free; no plan key
     rootDir: ecommerce-app/client
     buildCommand: npm ci && npm run build
     staticPublishPath: dist
